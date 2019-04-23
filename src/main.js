@@ -7,10 +7,21 @@ Vue.use(VueRouter);
 import VueResource from "vue-resource";
 Vue.use(VueResource);
 
-import { Header , Swipe, SwipeItem  } from 'mint-ui';
+//时间格式化插件
+import moment from "moment";
+// 定义全局过滤器
+Vue.filter('dataFormat',function(dataStr, pattern = 'YYYY-MM-DD HH:mm:ss'){
+   return moment(dataStr).format(pattern);
+});
+
+//设置全局的根路径
+Vue.http.options.root = 'http://www.liulongbin.top:3005/';
+
+import { Header , Swipe, SwipeItem , Button } from 'mint-ui';
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button);
 
 //导入mui样式表
 import './lib/mui/css/mui.css'
