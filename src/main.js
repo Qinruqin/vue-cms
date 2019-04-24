@@ -16,12 +16,23 @@ Vue.filter('dataFormat',function(dataStr, pattern = 'YYYY-MM-DD HH:mm:ss'){
 
 //设置全局的根路径
 Vue.http.options.root = 'http://www.liulongbin.top:3005/';
+//设置全局 post 时表单数据格式
+Vue.http.options.emulateJSON = true;
+//按需导入Mint-UI的组件
+// import { Header , Swipe, SwipeItem , Button ,Lazyload } from 'mint-ui';
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload);
 
-import { Header , Swipe, SwipeItem , Button } from 'mint-ui';
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+//全局导入Mint-UI
+import MintUI from "mint-ui";
+Vue.use(MintUI);
+import "mint-ui/lib/style.css";
+//安装图片预览插件vue2-preview
+import VuePreview from 'vue2-preview'
+Vue.use(VuePreview)
 
 //导入mui样式表
 import './lib/mui/css/mui.css'
