@@ -115,3 +115,14 @@
 2. 保证 手机可以访问电脑IP（处于一个WIFI环境中）
 3. 打开项目中的package.json，在 dev脚本中添加一个 --host 指令，把当前电脑的WIFI IP地址，设置为 --host的指令值
  + 查看自己WIFI的IP：在cmd中运行' ipconfig '，查看无线网的 ip
+
+## 制作 商品详情 页
+1. 使用vue-router跳转
+2. 使用mui的卡片视图页面进行布局card.html
+3. 轮播图组件分离：
+  + 传2个参数：轮播图列表lunbotuList，是否满屏isfull
+4. 商品购买区域
+
+## 制作 商品图文介绍 页
+
+## 制作 商品评论 页

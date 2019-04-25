@@ -1,10 +1,7 @@
 <template>
 	<div>
 		<!-- 轮播图 区域 -->
-		<mt-swipe :auto="3000">
-			<!-- 在组件中使用v-for一定要写:key -->
-		  <mt-swipe-item v-for="item in lunbotuList" :key="item.id"><img :src="item.img" alt=""></mt-swipe-item>
-		</mt-swipe>
+		<swiper :lunbotuList="lunbotuList":isfull="true"></swiper>
 
 		<!-- 九宫格 区域 -->
 		<div class="mui-content">
@@ -33,6 +30,8 @@
 </template>
 
 <script>
+	//引入自定义的轮播图组件
+	import swiper from '../subcomponents/swiper.vue';
 	import { Toast } from 'mint-ui';
 	export default{
 		data(){
@@ -60,42 +59,23 @@
 					}
 				})
 			}
+		},
+		components:{
+		    swiper
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.mint-swipe{
-		height: 200px;
-		.mint-swipe-item{
-			&:nth-child(1){
-				background-color:red;
-			}
-			&:nth-child(2){
-				background-color:green;
-			}
-			&:nth-child(3){
-				background-color:orange;
-			}
-		}
-
-		img{
-			width: 100%;
-			height: 200px;
-		}
+.mui-grid-view.mui-grid-9{
+	background-color: #fff;
+	border: 0;
+	img{
+		width: 60px;
+		height: 60px;
 	}
-
-	.mui-grid-view.mui-grid-9{
-		background-color: #fff;
-		border: 0;
-		img{
-			width: 60px;
-			height: 60px;
-		}
-	}
-	.mui-grid-view.mui-grid-9 .mui-table-view-cell{
-		border: 0;
-	}
-
-
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	border: 0;
+}
 </style>

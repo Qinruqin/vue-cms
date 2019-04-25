@@ -1,6 +1,6 @@
 <template>
 	<div class="goods-list">
-		<div class="goods-item" v-for="item in goodsList" :key="item.id">
+		<div class="goods-item" v-for="item in goodsList" :key="item.id" @click="goDetail(item.id)">
 			<img :src="item.img_url" alt="">
 			<h1 class="title">{{item.title}}</h1>
 			<div class="info">
@@ -50,6 +50,13 @@
 				this.pageIndex ++;
 				this.getGoodsList();
 			},
+			goDetail(id){
+				//使用vue-router进行路由跳转
+				// this.$route和this.$router的区别：
+				// this.$route是路由【参数对象】，所有路由中的参数，params，query都属于它
+				// this.$router是路由的【导航对象】，用它实现 路由的前进、后退，跳转到新的URL地址
+				this.$router.push('/home/goodsinfo/' + id);
+			}
 		}
 	}
 </script>
