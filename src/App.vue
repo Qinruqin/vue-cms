@@ -1,7 +1,12 @@
 <template>
 	<div class="app-content">
 		<!-- 头部 header -->
-		<mt-header fixed title="Vue项目"></mt-header>
+		<mt-header fixed title="Vue项目">
+			<span slot='left' @click="goBack">
+				<mt-button icon="back">返回</mt-button>
+		    </span>
+		</mt-header>
+
 		<!-- 中间主体内容 router-view -->
 		<transition>
 			<router-view></router-view>
@@ -17,7 +22,7 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item-lib" to="/shopcart">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{ $store.getters.getAllCount }}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item-lib" to="/search">
@@ -29,11 +34,28 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return {
+
+			}
+		},
+		methods:{
+			//返回
+			goBack(){
+				this.$router.go(-1);
+			}
+		}
+	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 	.mint-header{
 		z-index: 99;
+
+		.mint-header-title{
+			margin:0;
+		}
 	}
 	.app-content{
 		padding-top: 40px;

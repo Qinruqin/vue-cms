@@ -91,7 +91,6 @@
 				this.$http.get('api/goods/getinfo/'+this.id).then(result => {
 					if(result.body.status === 0){
 						//请求成功
-						console.log(result.body)
 						this.goodsInfo = result.body.message[0];
 					}else{
 						//失败
@@ -116,6 +115,10 @@
 			//加入购物车
 			addToShopcart(){
 				this.ballFlag = !this.ballFlag;
+				// {id:商品id,count:购买数量,price:单价,selected:true}
+				var goodsinfo = {id:this.id,count:this.sellectCount,price:this.goodsInfo.sell_price,selected:true};
+				//调用store中的addToCar方法
+				this.$store.commit('addToCar',goodsinfo);
 			},
 			// 小球动画
 			beforeEnter(el){

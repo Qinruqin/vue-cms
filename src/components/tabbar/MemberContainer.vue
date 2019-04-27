@@ -1,6 +1,6 @@
 <template>
 	<div>
-		member
+		memberContainer
 	</div>
 </template>
 

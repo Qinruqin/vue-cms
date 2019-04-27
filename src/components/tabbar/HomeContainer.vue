@@ -45,7 +45,6 @@
 		methods:{
 			getLunbotu(){
 				this.$http.get('api/getlunbo').then(result => {
-					console.log(result.body);
 					if(result.body.status === 0){
 						//请求成功
 						this.lunbotuList = result.body.message;

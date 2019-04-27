@@ -24,7 +24,6 @@ export default{
 			this.$http.get('api/goods/getdesc/'+this.id).then(result => {
 				if(result.body.status === 0){
 					//请求成功
-					console.log(result.body)
 					this.info = result.body.message[0];
 				}else{
 					//失败
